@@ -11,11 +11,8 @@ import java.util.Map;
  */
 public class L001_two_sum {
     public int[] twoSum(int[] nums, int target) {
-        if (nums == null || nums.length < 2) {
-            return null;
-        }
-        Map<Integer, Integer> map = new HashMap<>();
         int[] result = new int[2];
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             if (map.containsKey(target - nums[i])) {
                 result[0] = map.get(target - nums[i]);
@@ -24,6 +21,6 @@ public class L001_two_sum {
             }
             map.put(nums[i], i);
         }
-        return null;
+        return result;
     }
 }
