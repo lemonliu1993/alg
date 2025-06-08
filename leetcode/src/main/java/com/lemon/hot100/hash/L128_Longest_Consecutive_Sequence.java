@@ -16,16 +16,18 @@ public class L128_Longest_Consecutive_Sequence {
             set.add(nums[i]);
         }
         int result = 0;
-        for (Integer i : set) {
+        //这里不要用for循环原数组，如果有重复的会很占时间
+//        for (int i = 0; i < nums.length; i++) {
+        for(Integer i: set){
             if (set.contains(i - 1)) {
                 continue;
             }
-            int len = 0;
+            int temp = 0;
             while (set.contains(i)) {
-                len++;
+                temp++;
                 i++;
             }
-            result = Math.max(result, len);
+            result = Math.max(result, temp);
         }
         return result;
     }

@@ -19,14 +19,18 @@ public class L49_Group_Anagrams {
             //PS:这里不能用toString()方法，调用的是Object的toString
 //            String sortedStr = array.toString();
             String sortedStr = new String(array);
-            if (map.containsKey(sortedStr)) {
-                List<String> stringList = map.get(sortedStr);
-                stringList.add(strs[i]);
-            } else {
-                List<String> list = new ArrayList<>();
-                list.add(strs[i]);
-                map.put(sortedStr, list);
-            }
+            List<String> list = map.getOrDefault(sortedStr, new ArrayList<String>());
+            list.add(strs[i]);
+            map.put(sortedStr,list);
+
+//            if (map.containsKey(sortedStr)) {
+//                List<String> stringList = map.get(sortedStr);
+//                stringList.add(strs[i]);
+//            } else {
+//                List<String> list = new ArrayList<>();
+//                list.add(strs[i]);
+//                map.put(sortedStr, list);
+//            }
         }
 
         for (List<String> list : map.values()) {
